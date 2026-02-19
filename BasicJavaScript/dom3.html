@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom3</title>
+</head>
+<body style="background-color: black; color: #ffffff;">
+
+    <ul class="programming">
+        <li class="subj">html</li>
+        <li class="subj">css</li>
+        <li class="subj">javascript</li>
+    </ul>
+    
+</body>
+<script>
+   
+   const li = document.createElement('li')
+   li.textContent = "python"
+   const ul = document.querySelector('.programming')
+   ul.append(li)
+
+    const div = document.createElement("div"); 
+    div.textContent = "Hello, I am a new div!"; 
+    div.style.color = "Red";
+    document.body.appendChild(div);
+
+</script>
+</html>

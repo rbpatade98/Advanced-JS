@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Interval Display</title>
+</head>
+<body>
+    <div id="output"></div>
+
+    <script>
+        const output = document.getElementById("output");
+
+        // Run every 1 second
+        var intervalId = setInterval(function() {
+            output.innerHTML += "Hello<br>";
+        }, 2000);
+
+        // Stop after 3 seconds
+        setTimeout(function() {
+            clearInterval(intervalId);
+            output.innerHTML += "Stopped!";
+        }, 10000);
+    </script>
+</body>
+</html>

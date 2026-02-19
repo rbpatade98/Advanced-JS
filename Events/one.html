@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Html events</title>
+</head>
+<body style="background-color: black; color: aliceblue;">
+    <h1>Amezing Events</h1>
+    <div>
+        <ul id="images">
+            <li><img src="https://images.unsplash.com/photo-1512734099960-65a682cbfe2b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGxvbmRvbnxlbnwwfHwwfHx8MA%3D%3D" width="200" height="100" id="London" alt="London" ></li>
+            <li><img src="https://media.istockphoto.com/id/1167975236/photo/the-statue-of-liberty-over-the-scene-of-new-york-cityscape-river-side-which-location-is-lower.webp?a=1&b=1&s=612x612&w=0&k=20&c=YGjmE6DoiytqYUk9CcWXl8bDA3VWGXzxyDT1IB1NUqY=" width="200" height="100" id="NewYork" alt="NewYork"></li>
+            <li><img src="https://images.unsplash.com/flagged/photo-1559717201-fbb671ff56b7?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8ZHViYWl8ZW58MHx8MHx8fDA%3D" width="200" height="100" id="Dubai" alt="Dubai"></li>
+            <li><img src="https://images.unsplash.com/photo-1562979314-bee7453e911c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bXVtYmFpfGVufDB8fDB8fHww" width="200" height="100" id="Mumbai" alt="Mumbai"></li>
+            <li><img src="https://images.unsplash.com/photo-1692089772629-a2a4a6054791?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHNpZG5leXxlbnwwfHwwfHx8MA%3D%3D" width="200" height="100" id="sydney" alt="sydney"></li>
+            <li><img src="https://media.istockphoto.com/id/912274822/photo/mt-fuji-and-tokyo-skyline.webp?a=1&b=1&s=612x612&w=0&k=20&c=gTm0cl-_PACp3jpysgqKLg0176yPqIEQtpnzwOrTscs=" width="200" height="100" id="Tokeyo" alt="Tokeyo"></li>
+        </ul>
+
+    </div>
+
+    <center><button id="btn">Click Me</button></center>
+    <input type="text" id="inputBox" placeholder="Type here">
+    <form id="myForm">
+    <input type="text" name="name" placeholder="Enter name">
+    <button type="submit">Submit</button>
+    </form>
+
+    <div id="parent" style="padding:20px; background-color:#ddd;">
+    Parent
+    <button id="child">Click</button>
+    </div>
+
+</body>
+<script>
+    document.getElementById('London').onclick = function(){
+        alert("London Click")
+    }
+
+    // type, timestamp, defaultprevented
+    // target, toelement, srcElement, CurrentTarget
+    // Client x, Client y, Screen x, SCreen Y 
+    // altKey , ctrlKey , shiftKey , keyCode
+
+    document.getElementById('London').addEventListener('click', function(){
+        alert('london clicked')
+    })
+
+    //attach event()
+
+    // document.getElementById('London').addEventListener('click',function(e){
+    //     console.log('click inside the ul')
+    // } ,false)
+
+    // document.getElementById('NewYork').addEventListener('click',function(e){
+    //     console.log('click on newyork')
+    //     e.stopPropagation()
+    // } ,false)
+
+    // document.getElementById('Mumbai').addEventListener('click',function(e){
+    //     e.preventDefault();
+    //     e.stopPropagation();
+
+    //     console.log('Mumbai Clicked')
+    // },false)
+
+    document.querySelector("#NewYork").addEventListener('click', function(e){
+        console.log(e)
+        console.log(e.target.parentNode)
+
+        let removeIt = e.target.parentNode
+        removeIt.remove()
+    })
+
+    document.getElementById("btn").addEventListener("click", function() {
+    alert("Button clicked!");
+});
+
+btn.addEventListener("click", function(e) {
+    console.log("Event type:", e.type);
+    console.log("Event target:", e.target);
+//     e.preventDefault();
+});
+
+
+let input = document.getElementById("inputBox");
+input.addEventListener("keyup", function(e) {
+    console.log("Key pressed:", e.key);
+});
+
+let form = document.getElementById("myForm");
+form.addEventListener("submit", function(e) {
+    e.preventDefault(); 
+    alert("Form submitted!");
+});
+
+
+</script>
+</html>
